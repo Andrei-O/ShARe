@@ -17,6 +17,11 @@
 		48EB289623A79DE000BC0DAD /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB289523A79DE000BC0DAD /* ARViewController.swift */; };
 		48EB289923A7A10400BC0DAD /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB289823A7A10400BC0DAD /* LocalizedStrings.swift */; };
 		48EB289B23A7A1D900BC0DAD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48EB289A23A7A1D900BC0DAD /* Localizable.strings */; };
+		48EB289F23A7B27200BC0DAD /* MultipeerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB289E23A7B27200BC0DAD /* MultipeerSession.swift */; };
+		48EB28A123A7B47E00BC0DAD /* MultipeerServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB28A023A7B47E00BC0DAD /* MultipeerServiceConstants.swift */; };
+		48EB28A323A7C2AB00BC0DAD /* ARSceneConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB28A223A7C2AB00BC0DAD /* ARSceneConstants.swift */; };
+		48EB28A523A7C33D00BC0DAD /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB28A423A7C33D00BC0DAD /* Assets.scnassets */; };
+		48EB28A823A7C40100BC0DAD /* SceneNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB28A723A7C40100BC0DAD /* SceneNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		48EB289523A79DE000BC0DAD /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		48EB289823A7A10400BC0DAD /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		48EB289A23A7A1D900BC0DAD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		48EB289E23A7B27200BC0DAD /* MultipeerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSession.swift; sourceTree = "<group>"; };
+		48EB28A023A7B47E00BC0DAD /* MultipeerServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerServiceConstants.swift; sourceTree = "<group>"; };
+		48EB28A223A7C2AB00BC0DAD /* ARSceneConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneConstants.swift; sourceTree = "<group>"; };
+		48EB28A423A7C33D00BC0DAD /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
+		48EB28A723A7C40100BC0DAD /* SceneNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +113,11 @@
 		48EB285D23A79BE700BC0DAD /* ShARe */ = {
 			isa = PBXGroup;
 			children = (
-				48EB288E23A79C8100BC0DAD /* Screens */,
+				48EB289023A79CA300BC0DAD /* Storyboards */,
+				48EB288F23A79C8E00BC0DAD /* Views */,
+				48EB28A623A7C3C700BC0DAD /* Models */,
+				48EB289D23A7B25800BC0DAD /* Helpers */,
+				48EB289C23A7B22B00BC0DAD /* Constants */,
 				48EB289223A79CCA00BC0DAD /* Resources */,
 				48EB289123A79CB500BC0DAD /* App */,
 			);
@@ -126,15 +140,6 @@
 				48EB288223A79BE800BC0DAD /* Info.plist */,
 			);
 			path = ShAReUITests;
-			sourceTree = "<group>";
-		};
-		48EB288E23A79C8100BC0DAD /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				48EB289023A79CA300BC0DAD /* Storyboards */,
-				48EB288F23A79C8E00BC0DAD /* Views */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		48EB288F23A79C8E00BC0DAD /* Views */ = {
@@ -169,6 +174,7 @@
 			children = (
 				48EB289723A7A0CF00BC0DAD /* Localization */,
 				48EB286723A79BE800BC0DAD /* Assets.xcassets */,
+				48EB28A423A7C33D00BC0DAD /* Assets.scnassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -180,6 +186,31 @@
 				48EB289A23A7A1D900BC0DAD /* Localizable.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		48EB289C23A7B22B00BC0DAD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				48EB28A023A7B47E00BC0DAD /* MultipeerServiceConstants.swift */,
+				48EB28A223A7C2AB00BC0DAD /* ARSceneConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		48EB289D23A7B25800BC0DAD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				48EB289E23A7B27200BC0DAD /* MultipeerSession.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		48EB28A623A7C3C700BC0DAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48EB28A723A7C40100BC0DAD /* SceneNode.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48EB286B23A79BE800BC0DAD /* LaunchScreen.storyboard in Resources */,
+				48EB28A523A7C33D00BC0DAD /* Assets.scnassets in Resources */,
 				48EB289B23A7A1D900BC0DAD /* Localizable.strings in Resources */,
 				48EB286823A79BE800BC0DAD /* Assets.xcassets in Resources */,
 				48EB286623A79BE700BC0DAD /* Main.storyboard in Resources */,
@@ -315,9 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				48EB285F23A79BE700BC0DAD /* AppDelegate.swift in Sources */,
+				48EB28A323A7C2AB00BC0DAD /* ARSceneConstants.swift in Sources */,
+				48EB289F23A7B27200BC0DAD /* MultipeerSession.swift in Sources */,
 				48EB289423A79D6700BC0DAD /* MainNavigationController.swift in Sources */,
 				48EB289623A79DE000BC0DAD /* ARViewController.swift in Sources */,
 				48EB289923A7A10400BC0DAD /* LocalizedStrings.swift in Sources */,
+				48EB28A823A7C40100BC0DAD /* SceneNode.swift in Sources */,
+				48EB28A123A7B47E00BC0DAD /* MultipeerServiceConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35392G9P9B;
 				INFOPLIST_FILE = ShARe/App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35392G9P9B;
 				INFOPLIST_FILE = ShARe/App/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
