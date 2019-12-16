@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  ShARe
+
+  Created by Andrei Ostafciuc on 16/12/2019.
+  Copyright © 2019 Andrei Ostafciuc. All rights reserved.
+*/
+
+
+/*
+ --------------------------- ARScreen ---------------------------
+ */
+
+/* No comment frovided by engineer. */
+"AR_KIT_NOT_SUPPORTED" = "ARKit is not available on this device.";
