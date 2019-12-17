@@ -16,7 +16,10 @@ struct ARSceneConstants {
         
         static let defaultAnchorName = "plantAnchor"
         static let resourceName = "plant"
+        static let wireframeShaderName = "wireframe_shader"
+        static let metalExtension = "metal"
         static let resourceExtension = "scn"
         static let directory = "Assets.scnassets"
+        static let referenceObjectsGroupName = "referenceObjects"
     }
 }

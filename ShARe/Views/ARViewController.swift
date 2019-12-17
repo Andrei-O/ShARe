@@ -65,6 +65,10 @@ class ARViewController: UIViewController {
             configurationOptions = [.resetTracking, .removeExistingAnchors]
         }
         
+        if let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: ARSceneConstants.VirtualObjects.referenceObjectsGroupName, bundle: nil) {
+            configuration.detectionObjects = referenceObjects
+        }
+        
         sceneView.session.run(configuration, options: configurationOptions)
         sceneView.session.delegate = self
         
@@ -122,10 +126,17 @@ class ARViewController: UIViewController {
 extension ARViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         // load new object
-        guard let anchorName = anchor.name,
+        if let anchorName = anchor.name,
             anchorName.elementsEqual(ARSceneConstants.VirtualObjects.defaultAnchorName),
-            let objectNode = loadObject() else { return }
-        node.addChildNode(objectNode)
+            let objectNode = loadObject() {
+            node.addChildNode(objectNode)
+        } else if let objectAnchor = anchor as? ARObjectAnchor {
+            //add bounding box to the detected real object
+            let referenceObject = objectAnchor.referenceObject
+            let objectScale = CGFloat(referenceObject.scale.x)
+            let boundingBox = BoundingBoxNode(points: referenceObject.rawFeaturePoints.points, scale: objectScale)
+            node.addChildNode(boundingBox)
+        }
     }
 }
 

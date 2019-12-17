@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		488476E023A8FCD9003B39C6 /* TrackingState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488476DF23A8FCD9003B39C6 /* TrackingState+Extension.swift */; };
+		488476E223A900AB003B39C6 /* BoundingBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488476E123A900AB003B39C6 /* BoundingBoxNode.swift */; };
 		48EB285F23A79BE700BC0DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB285E23A79BE700BC0DAD /* AppDelegate.swift */; };
 		48EB286623A79BE700BC0DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EB286423A79BE700BC0DAD /* Main.storyboard */; };
 		48EB286823A79BE800BC0DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EB286723A79BE800BC0DAD /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		488476DF23A8FCD9003B39C6 /* TrackingState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackingState+Extension.swift"; sourceTree = "<group>"; };
+		488476E123A900AB003B39C6 /* BoundingBoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBoxNode.swift; sourceTree = "<group>"; };
 		48EB285B23A79BE700BC0DAD /* ShARe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShARe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48EB285E23A79BE700BC0DAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48EB286523A79BE700BC0DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		488476DE23A8FCBC003B39C6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				488476DF23A8FCD9003B39C6 /* TrackingState+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		48EB285223A79BE700BC0DAD = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 				48EB288F23A79C8E00BC0DAD /* Views */,
 				48EB28A623A7C3C700BC0DAD /* Models */,
 				48EB289D23A7B25800BC0DAD /* Helpers */,
+				488476DE23A8FCBC003B39C6 /* Extensions */,
 				48EB289C23A7B22B00BC0DAD /* Constants */,
 				48EB289223A79CCA00BC0DAD /* Resources */,
 				48EB289123A79CB500BC0DAD /* App */,
@@ -209,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				48EB28A723A7C40100BC0DAD /* SceneNode.swift */,
+				488476E123A900AB003B39C6 /* BoundingBoxNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -352,6 +366,8 @@
 				48EB289423A79D6700BC0DAD /* MainNavigationController.swift in Sources */,
 				48EB289623A79DE000BC0DAD /* ARViewController.swift in Sources */,
 				48EB289923A7A10400BC0DAD /* LocalizedStrings.swift in Sources */,
+				488476E023A8FCD9003B39C6 /* TrackingState+Extension.swift in Sources */,
+				488476E223A900AB003B39C6 /* BoundingBoxNode.swift in Sources */,
 				48EB28A823A7C40100BC0DAD /* SceneNode.swift in Sources */,
 				48EB28A123A7B47E00BC0DAD /* MultipeerServiceConstants.swift in Sources */,
 			);
