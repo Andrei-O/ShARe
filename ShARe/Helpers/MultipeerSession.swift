@@ -18,6 +18,10 @@ class MultipeerSession: NSObject {
     private let serviceBrowser: MCNearbyServiceBrowser
     private let dataHandler: PeerDataHandler
     
+    var connectedPeers: [MCPeerID] {
+        return session.connectedPeers
+    }
+    
     //MARK: - Lifecycle
     init(receivedDataHandler: @escaping PeerDataHandler) {
         dataHandler = receivedDataHandler
@@ -34,6 +38,15 @@ class MultipeerSession: NSObject {
         
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
+    }
+    
+    //MARK: - Helpers
+    func sendToAllPeers(_ data: Data) {
+        do {
+            try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+        } catch {
+            print(LocalizedStrings.MultipeerSession.failedToSendDataToPeers)
+        }
     }
 }
 
@@ -57,6 +70,7 @@ extension MultipeerSession: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         //always accept the invitations
         invitationHandler(true, session)
+        print("accepted peer invitation")
     }
 }
 
@@ -64,6 +78,7 @@ extension MultipeerSession: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         // Automatically invite all the discovered peers
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
+        print("sent peer invitation")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {

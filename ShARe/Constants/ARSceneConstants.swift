@@ -14,6 +14,7 @@ struct ARSceneConstants {
     struct VirtualObjects {
         private init() { }
         
+        static let defaultAnchorName = "plantAnchor"
         static let resourceName = "plant"
         static let resourceExtension = "scn"
         static let directory = "Assets.scnassets"

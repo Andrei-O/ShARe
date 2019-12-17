@@ -24,11 +24,32 @@
                                     <outletCollection property="gestureRecognizers" destination="q88-66-xmO" appends="YES" id="IRS-Hf-fS2"/>
                                 </connections>
                             </arscnView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhi-MG-7j6">
+                                <rect key="frame" x="164" y="802" width="86" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6sr-MJ-mW8"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                <state key="normal" title="ShARe">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="shareARSessionTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GaH-cP-Ywc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="t5w-CA-65u" secondAttribute="trailing" id="BlA-OJ-qkJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jhi-MG-7j6" secondAttribute="bottom" constant="30" id="YwN-DJ-6MI"/>
                             <constraint firstItem="t5w-CA-65u" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oCm-fU-3s9"/>
+                            <constraint firstItem="jhi-MG-7j6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sgj-IY-9fc"/>
                             <constraint firstAttribute="bottom" secondItem="t5w-CA-65u" secondAttribute="bottom" id="vJe-GG-LX9"/>
                             <constraint firstItem="t5w-CA-65u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="x0I-2I-fvm"/>
                         </constraints>
@@ -37,6 +58,7 @@
                     <navigationItem key="navigationItem" id="aFf-Wu-Nwh"/>
                     <connections>
                         <outlet property="sceneView" destination="t5w-CA-65u" id="Fez-0U-o2s"/>
+                        <outlet property="shareButton" destination="jhi-MG-7j6" id="Wct-IH-1me"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
