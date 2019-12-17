@@ -133,7 +133,6 @@ extension ARViewController: ARSCNViewDelegate {
         } else if let objectAnchor = anchor as? ARObjectAnchor {
             //add bounding box to the detected real object
             let referenceObject = objectAnchor.referenceObject
-            print(referenceObject.rawFeaturePoints.points)
             let objectScale = CGFloat(referenceObject.scale.x)
             let boundingBox = BoundingBoxNode(points: referenceObject.rawFeaturePoints.points, scale: objectScale)
             node.addChildNode(boundingBox)
