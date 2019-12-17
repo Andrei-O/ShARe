@@ -70,7 +70,6 @@ extension MultipeerSession: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         //always accept the invitations
         invitationHandler(true, session)
-        print("accepted peer invitation")
     }
 }
 
@@ -78,7 +77,6 @@ extension MultipeerSession: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String : String]?) {
         // Automatically invite all the discovered peers
         browser.invitePeer(peerID, to: session, withContext: nil, timeout: 10)
-        print("sent peer invitation")
     }
     
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
