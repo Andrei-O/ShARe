@@ -13,3 +13,13 @@
 
 /* No comment frovided by engineer. */
 "AR_KIT_NOT_SUPPORTED" = "ARKit is not available on this device.";
+
+/*
+ --------------------------- MultipeerSession ---------------------------
+ */
+
+/* No comment frovided by engineer. */
+"PEER_FAILED_TO_SEND_DATA" = "Failed to send data to connected peers.";
+
+/* No comment frovided by engineer. */
+"PEER_RECEIVED_UNKNOWN_DATA" = "Received unknown data object.";

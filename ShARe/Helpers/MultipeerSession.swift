@@ -18,6 +18,10 @@ class MultipeerSession: NSObject {
     private let serviceBrowser: MCNearbyServiceBrowser
     private let dataHandler: PeerDataHandler
     
+    var connectedPeers: [MCPeerID] {
+        return session.connectedPeers
+    }
+    
     //MARK: - Lifecycle
     init(receivedDataHandler: @escaping PeerDataHandler) {
         dataHandler = receivedDataHandler
@@ -34,6 +38,15 @@ class MultipeerSession: NSObject {
         
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
+    }
+    
+    //MARK: - Helpers
+    func sendToAllPeers(_ data: Data) {
+        do {
+            try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+        } catch {
+            print(LocalizedStrings.MultipeerSession.failedToSendDataToPeers)
+        }
     }
 }
 
