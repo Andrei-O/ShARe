@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ARSceneConstants {
     private init() { }
@@ -21,5 +22,12 @@ struct ARSceneConstants {
         static let resourceExtension = "scn"
         static let directory = "Assets.scnassets"
         static let referenceObjectsGroupName = "referenceObjects"
+    }
+    
+    struct Colors {
+        private init() { }
+        
+        static let shareButtonDisabled = UIColor(named: "shareButtonDisabledColor")!
+        static let shareButtonEnabled = UIColor(named: "shareButtonEnabledColor")!
     }
 }

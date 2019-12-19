@@ -14,20 +14,20 @@ class ARViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var shareButton: UIButton!
+//    @IBOutlet weak var shareButton: UIButton!
     
     //MARK: - Properties
     private var multipeerSession: MultipeerSession!
+    private var shareButtonViewController: ShareButtonViewController!
+    private var peersCounterViewController: PeerCounterViewController!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         multipeerSession = MultipeerSession(receivedDataHandler: handleReceivedPeerData)
-        
-        setupUI()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -48,9 +48,6 @@ class ARViewController: UIViewController {
     }
     
     //MARK: - Setup
-    private func setupUI() {
-        
-    }
     
     private func setupARSceneConfiguration(worldMap: ARWorldMap? = nil) {
         guard ARWorldTrackingConfiguration.isSupported else { fatalError(LocalizedStrings.ARScreen.arFrameworkNotSupported) }
@@ -97,7 +94,24 @@ class ARViewController: UIViewController {
         multipeerSession.sendToAllPeers(anchorData)
     }
     
-    @IBAction private func shareARSessionTouchUpInside(_ sender: Any) {
+    @IBAction func resetButtonTouchUpInside(_ sender: Any) {
+        setupARSceneConfiguration()
+    }
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let shareButtonVC = segue.destination as? ShareButtonViewController {
+            shareButtonViewController = shareButtonVC
+            shareButtonViewController.delegate = self
+        } else if let peersCounterVC = segue.destination as? PeerCounterViewController {
+            peersCounterViewController = peersCounterVC
+        }
+    }
+    
+    //MARK: - Helper functions
+    
+    private func shareARSession() {
         sceneView.session.getCurrentWorldMap { [weak self] (worldMap, error) in
             guard let map = worldMap else { return }
             guard let mapData = try? NSKeyedArchiver.archivedData(withRootObject: map, requiringSecureCoding: true) else { return }
@@ -105,7 +119,6 @@ class ARViewController: UIViewController {
         }
     }
     
-    //MARK: - Helper functions
     private func handleReceivedPeerData(data: Data, peerID: MCPeerID) {
         if let worldMap = try? NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data) {
             setupARSceneConfiguration(worldMap: worldMap)
@@ -143,16 +156,28 @@ extension ARViewController: ARSCNViewDelegate {
 extension ARViewController: ARSessionDelegate {
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         // update a screen label
+        print(camera.trackingState.presentationString)
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        switch frame.worldMappingStatus {
-        case .notAvailable, .limited:
-            shareButton.isEnabled = false
-        case .extending, .mapped:
-            shareButton.isEnabled = !multipeerSession.connectedPeers.isEmpty
+        let status = frame.worldMappingStatus
+        switch status {
+        case .notAvailable, .limited, .extending:
+            if status == .notAvailable {
+                shareButtonViewController.progress = shareButtonViewController.progressSteps[0]
+            } else if status == .limited {
+                shareButtonViewController.progress = shareButtonViewController.progressSteps[1]
+            } else {
+                 shareButtonViewController.progress = shareButtonViewController.progressSteps[2]
+            }
+            shareButtonViewController.shareEnabled = false
+        case  .mapped:
+            shareButtonViewController.progress = shareButtonViewController.progressSteps[3]
+            shareButtonViewController.shareEnabled = !multipeerSession.connectedPeers.isEmpty
         default: break
         }
+        
+        peersCounterViewController.peersCount = multipeerSession.connectedPeers.count
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
@@ -165,5 +190,11 @@ extension ARViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         
+    }
+}
+
+extension ARViewController: ShareButtonViewControllerDelegate {
+    func didPressShareButton(_ shareButtonViewController: ShareButtonViewController) {
+        shareARSession()
     }
 }

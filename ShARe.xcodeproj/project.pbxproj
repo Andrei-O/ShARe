@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4829169923AB782A00F7416E /* ShareButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829169823AB782A00F7416E /* ShareButtonViewController.swift */; };
+		4829169B23AB7C0E00F7416E /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829169A23AB7C0E00F7416E /* CircularProgressView.swift */; };
+		4829169D23ABC72900F7416E /* PeersCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4829169C23ABC72900F7416E /* PeersCounterViewController.swift */; };
 		488476E023A8FCD9003B39C6 /* TrackingState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488476DF23A8FCD9003B39C6 /* TrackingState+Extension.swift */; };
 		488476E223A900AB003B39C6 /* BoundingBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488476E123A900AB003B39C6 /* BoundingBoxNode.swift */; };
 		48EB285F23A79BE700BC0DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB285E23A79BE700BC0DAD /* AppDelegate.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4829169823AB782A00F7416E /* ShareButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButtonViewController.swift; sourceTree = "<group>"; };
+		4829169A23AB7C0E00F7416E /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		4829169C23ABC72900F7416E /* PeersCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeersCounterViewController.swift; sourceTree = "<group>"; };
 		488476DF23A8FCD9003B39C6 /* TrackingState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackingState+Extension.swift"; sourceTree = "<group>"; };
 		488476E123A900AB003B39C6 /* BoundingBoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingBoxNode.swift; sourceTree = "<group>"; };
 		48EB285B23A79BE700BC0DAD /* ShARe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShARe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +166,9 @@
 			children = (
 				48EB289323A79D6700BC0DAD /* MainNavigationController.swift */,
 				48EB289523A79DE000BC0DAD /* ARViewController.swift */,
+				4829169823AB782A00F7416E /* ShareButtonViewController.swift */,
+				4829169A23AB7C0E00F7416E /* CircularProgressView.swift */,
+				4829169C23ABC72900F7416E /* PeersCounterViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,9 +374,12 @@
 				48EB289F23A7B27200BC0DAD /* MultipeerSession.swift in Sources */,
 				48EB289423A79D6700BC0DAD /* MainNavigationController.swift in Sources */,
 				48EB289623A79DE000BC0DAD /* ARViewController.swift in Sources */,
+				4829169923AB782A00F7416E /* ShareButtonViewController.swift in Sources */,
 				48EB289923A7A10400BC0DAD /* LocalizedStrings.swift in Sources */,
 				488476E023A8FCD9003B39C6 /* TrackingState+Extension.swift in Sources */,
+				4829169D23ABC72900F7416E /* PeersCounterViewController.swift in Sources */,
 				488476E223A900AB003B39C6 /* BoundingBoxNode.swift in Sources */,
+				4829169B23AB7C0E00F7416E /* CircularProgressView.swift in Sources */,
 				48EB28A823A7C40100BC0DAD /* SceneNode.swift in Sources */,
 				48EB28A123A7B47E00BC0DAD /* MultipeerServiceConstants.swift in Sources */,
 			);
