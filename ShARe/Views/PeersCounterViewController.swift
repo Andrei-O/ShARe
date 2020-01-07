@@ -27,6 +27,11 @@ class PeerCounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+      setupUI()
     }
+
+  //MARK: - Setup UI
+  private func setupUI() {
+    view.isHidden = true
+  }
 }
