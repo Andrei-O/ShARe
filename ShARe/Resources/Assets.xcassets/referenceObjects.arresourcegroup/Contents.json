@@ -6,6 +6,9 @@
   "resources" : [
     {
       "filename" : "glueObject.arobject"
+    },
+    {
+      "filename" : "miracleMug.arobject"
     }
   ]
 }
