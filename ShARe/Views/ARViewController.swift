@@ -56,10 +56,10 @@ class ARViewController: UIViewController {
         var configurationOptions: ARSession.RunOptions = []
         
         configuration.planeDetection = .horizontal
-        
+        configurationOptions = [.resetTracking, .removeExistingAnchors]
+
         if let map = worldMap {
             configuration.initialWorldMap = map
-            configurationOptions = [.resetTracking, .removeExistingAnchors]
         }
         
         if let referenceObjects = ARReferenceObject.referenceObjects(inGroupNamed: ARSceneConstants.VirtualObjects.referenceObjectsGroupName, bundle: nil) {
