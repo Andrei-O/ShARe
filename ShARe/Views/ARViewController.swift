@@ -88,14 +88,15 @@ class ARViewController: UIViewController {
         let anchor = ARAnchor(name: ARSceneConstants.VirtualObjects.defaultAnchorName, transform: firstHitTestResult.worldTransform)
         sceneView.session.add(anchor: anchor)
         
-        //notify connected peers about the object that we just placed in the scene
-        
+
         guard let anchorData = try? NSKeyedArchiver.archivedData(withRootObject: anchor, requiringSecureCoding: true) else { return }
+
+        //notify connected peers about the object that we just placed in the scene
         multipeerSession.sendToAllPeers(anchorData)
     }
     
     @IBAction func resetButtonTouchUpInside(_ sender: Any) {
-        setupARSceneConfiguration()
+        removeAllAnchors()
     }
     
     //MARK: - Navigation
@@ -131,6 +132,10 @@ class ARViewController: UIViewController {
     
     private func loadObject() -> SCNNode? {
         return SCNNode(name: ARSceneConstants.VirtualObjects.resourceName)
+    }
+
+    private func removeAllAnchors() {
+      sceneView.session.currentFrame?.anchors.forEach({ sceneView.session.remove(anchor: $0) })
     }
 }
 
@@ -181,7 +186,7 @@ extension ARViewController: ARSessionDelegate {
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        
+
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
